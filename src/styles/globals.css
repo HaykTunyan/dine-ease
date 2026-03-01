@@ -1,0 +1,65 @@
+@import "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap";
+@import "tailwindcss";
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --primary: 32 95% 44%;
+  --card: 0 0% 100%;
+  --accent: 240 4.8% 95.9%;
+  --muted: 240 4.8% 95.9%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --accent: 240 3.7% 15.9%;
+    --muted: 240 3.7% 15.9%;
+  }
+}
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  --color-primary: hsl(var(--primary));
+  --color-border: hsl(var(--accent));
+}
+
+* {
+  border-color: hsl(var(--accent));
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #f97316, #fbbf24);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
