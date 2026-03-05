@@ -39,23 +39,23 @@ const HeroSection = () => {
                 </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight max-w-4xl mb-6 leading-[1.1]">
-                Elevate Your Dining <br />
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl mb-6 leading-[1.1]">
+                Elevate Your Dining <br className="hidden md:block" />
                 Experience with <span className="gradient-text">Intelligence</span>
             </h1>
 
-            <p className="text-lg text-muted-foreground max-w-2xl mb-10 leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mb-10 leading-relaxed px-4 md:px-0">
                 From real-time table maps to seamless digital ordering, Dine Ease connects you
                 with your favorite restaurants in a way that feels like magic.
             </p>
 
-            <div className="flex gap-4">
-                <button className="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-xl shadow-primary/20 hover:scale-105 transition-transform cursor-pointer"
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-6 sm:px-0">
+                <button className="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-xl shadow-primary/20 hover:scale-105 transition-transform cursor-pointer w-full sm:w-auto"
                     onClick={handleBookTable}
                 >
                     Book a Table
                 </button>
-                <button className="px-8 py-4 rounded-full font-bold border border-foreground/10 hover:bg-foreground/5 transition-colors cursor-pointer"
+                <button className="px-8 py-4 rounded-full font-bold border border-foreground/10 hover:bg-foreground/5 transition-colors cursor-pointer w-full sm:w-auto"
                     onClick={handleExploreMenu}
                 >
                     Explore Menu

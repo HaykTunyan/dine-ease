@@ -1,31 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
 import { RESTAURANTS } from "./data";
+import Header from "@/components/header";
 
 export default function RestaurantsListPage() {
+
+    /**
+     * 
+     * RestaurantsListPage
+     * 
+     * This page is a list of all restaurants.
+     * It displays the restaurant's information, images, and other details.
+     * 
+     * 
+     */
+
+
     return (
         <div className="min-h-screen bg-white dark:bg-black pb-20 overflow-x-hidden">
             {/* Navigation (Consistent) */}
-            <nav className="fixed top-0 z-50 w-full glass border-b border-white/10 px-6 py-4 flex items-center justify-between">
-                <Link href="/" className="text-2xl font-bold tracking-tighter">
-                    Dine<span className="gradient-text">Ease</span>
-                </Link>
-                <div className="flex gap-8 text-sm font-medium opacity-80">
-                    <Link href="/restaurants" className="text-primary font-bold">Restaurants</Link>
-                    <Link href="/order" className="hover:text-primary transition-colors">Order Table</Link>
-                    <Link href="/about" className="hover:text-primary transition-colors">About</Link>
-                    <Link href="/notifications" className="hover:text-primary transition-colors">Notifications</Link>
-                    <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
-                </div>
-                <button className="bg-primary text-white px-5 py-2 rounded-full text-sm font-semibold">My Account</button>
-            </nav>
+
+            <Header />
 
             <main className="pt-32 max-w-7xl mx-auto px-6">
                 <div className="flex flex-col gap-4 mb-16">
-                    <h1 className="text-6xl font-bold tracking-tighter">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
                         Find Your <span className="gradient-text">Destination</span>
                     </h1>
-                    <p className="text-xl text-muted-foreground opacity-60">
+                    <p className="text-lg md:text-xl text-muted-foreground opacity-60 max-w-2xl">
                         Discover 12+ handpicked premium restaurants for your next unforgettable dining experience.
                     </p>
                 </div>

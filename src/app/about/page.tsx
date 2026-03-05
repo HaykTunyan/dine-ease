@@ -1,3 +1,5 @@
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 import Image from "next/image";
 
 const STATS = [
@@ -22,33 +24,21 @@ export default function AboutPage() {
     return (
         <div className="min-h-screen bg-white dark:bg-black pb-20 overflow-hidden">
             {/* Navigation */}
-            <nav className="fixed top-0 z-50 w-full glass border-b border-white/10 px-6 py-4 flex items-center justify-between">
-                <a href="/" className="text-2xl font-bold tracking-tighter">
-                    Dine<span className="gradient-text">Ease</span>
-                </a>
-                <div className="flex gap-8 text-sm font-medium opacity-80">
-                    <a href="/restaurants" className="hover:text-primary transition-colors">Restaurants</a>
-                    <a href="/order" className="hover:text-primary transition-colors">Order Table</a>
-                    <a href="/about" className="text-primary font-bold">About</a>
-                    <a href="/notifications" className="hover:text-primary transition-colors">Notifications</a>
-                    <a href="/contact" className="hover:text-primary transition-colors">Contact</a>
-                </div>
-                <button className="bg-primary text-white px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity">
-                    Get Started
-                </button>
-            </nav>
+
+            <Header />
+
 
             <main>
                 {/* Intro Section */}
-                <section className="relative pt-48 pb-24 px-6 text-center max-w-5xl mx-auto">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] hero-gradient pointer-events-none opacity-50" />
+                <section className="relative pt-32 md:pt-48 pb-16 md:pb-24 px-6 text-center max-w-5xl mx-auto overflow-hidden">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[800px] h-[400px] md:h-[500px] hero-gradient pointer-events-none opacity-50" />
 
-                    <span className="px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-xs font-semibold text-primary mb-6 inline-block uppercase tracking-[0.2em]">
+                    <span className="px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-[10px] md:text-xs font-semibold text-primary mb-6 inline-block uppercase tracking-[0.2em]">
                         The Best in Dining Technology
                     </span>
 
-                    <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-8">
-                        The Story Behind <br />
+                    <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-8 text-white">
+                        The Story Behind <br className="hidden md:block" />
                         <span className="gradient-text">Dine Ease</span>
                     </h1>
 
@@ -61,19 +51,19 @@ export default function AboutPage() {
 
                 {/* Stats Grid */}
                 <section className="px-6 py-12 max-w-7xl mx-auto">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                         {STATS.map(stat => (
-                            <div key={stat.label} className="glass p-8 rounded-3xl border border-white/10 text-center card-hover">
-                                <div className="text-4xl font-bold gradient-text mb-2">{stat.value}</div>
-                                <div className="text-sm font-medium opacity-50 uppercase tracking-widest">{stat.label}</div>
+                            <div key={stat.label} className="glass p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 text-center card-hover">
+                                <div className="text-2xl md:text-4xl font-bold gradient-text mb-2">{stat.value}</div>
+                                <div className="text-[10px] md:text-sm font-medium opacity-50 uppercase tracking-widest text-white">{stat.label}</div>
                             </div>
                         ))}
                     </div>
                 </section>
 
                 {/* Detailed Info */}
-                <section className="px-6 py-24 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    <div className="relative h-[600px] rounded-[3rem] overflow-hidden shadow-2xl animate-float">
+                <section className="px-6 py-16 md:py-24 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+                    <div className="relative h-[400px] md:h-[600px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl animate-float">
                         <Image
                             src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop"
                             alt="Team presentation"
@@ -81,9 +71,9 @@ export default function AboutPage() {
                             className="object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                        <div className="absolute bottom-10 left-10 text-white">
-                            <p className="text-sm font-bold uppercase tracking-widest mb-2 text-primary">Est. 2024</p>
-                            <h3 className="text-3xl font-bold">Innovation in every byte.</h3>
+                        <div className="absolute bottom-6 md:bottom-10 left-6 md:left-10 text-white">
+                            <p className="text-xs md:text-sm font-bold uppercase tracking-widest mb-1 md:2 text-primary">Est. 2024</p>
+                            <h3 className="text-2xl md:text-3xl font-bold tracking-tight">Innovation in every byte.</h3>
                         </div>
                     </div>
 
@@ -114,22 +104,20 @@ export default function AboutPage() {
                 </section>
 
                 {/* Call to Action */}
-                <section className="px-6 py-24 text-center">
-                    <h2 className="text-3xl font-bold mb-8">Ready to join the revolution?</h2>
-                    <div className="flex justify-center gap-4">
-                        <button className="bg-primary text-white px-10 py-5 rounded-full font-bold shadow-2xl shadow-primary/40 hover:scale-105 active:scale-95 transition-all">
+                <section className="px-6 py-16 md:py-24 text-center">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">Ready to join the revolution?</h2>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4 px-6 md:px-0">
+                        <button className="bg-primary text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold shadow-2xl shadow-primary/40 hover:scale-105 active:scale-95 transition-all w-full sm:w-auto">
                             Join our Network
                         </button>
-                        <button className="px-10 py-5 rounded-full font-bold border border-foreground/10 hover:bg-foreground/5 transition-colors">
+                        <button className="px-8 md:px-10 py-4 md:py-5 rounded-full font-bold border border-foreground/10 hover:bg-foreground/5 transition-colors w-full sm:w-auto text-white">
                             Contact Us
                         </button>
                     </div>
                 </section>
             </main>
 
-            <footer className="border-t border-white/10 py-12 px-6 text-center text-sm text-muted-foreground">
-                <p>© 2026 Dine Ease. Elevating the art of dining.</p>
-            </footer>
+            <Footer />
         </div>
     );
 }
