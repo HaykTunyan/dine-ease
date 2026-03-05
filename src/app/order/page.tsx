@@ -64,9 +64,8 @@ export default function OrderTablePage() {
      * Order Table Page
      * 
      * 
+     * 
      */
-
-
 
 
     const [selectedTable, setSelectedTable] = useState<Table | null>(null);
@@ -74,7 +73,34 @@ export default function OrderTablePage() {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [lastBookedTable, setLastBookedTable] = useState<Table | null>(null);
+    const [bookingData, setBookingData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        time: ""
+    });
+    const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const canvasRef = useRef<HTMLCanvasElement>(null);
+
+    const validateForm = () => {
+        const newErrors: { [key: string]: string } = {};
+
+        if (!bookingData.name.trim()) newErrors.name = "GUEST_NAME_REQUIRED";
+        else if (bookingData.name.length < 2) newErrors.name = "INVALID_NAME_PROTOCOL";
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!bookingData.email.trim()) newErrors.email = "SECURE_EMAIL_REQUIRED";
+        else if (!emailRegex.test(bookingData.email)) newErrors.email = "ENCRYPTION_LAYER_MISMATCH";
+
+        const phoneRegex = /^\+?[\d\s-]{10,}$/;
+        if (!bookingData.phone.trim()) newErrors.phone = "RELAY_PHONE_REQUIRED";
+        else if (!phoneRegex.test(bookingData.phone)) newErrors.phone = "SIGNAL_TRANSFER_FAILED";
+
+        if (!bookingData.time) newErrors.time = "SELECTION_REQUIRED";
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -146,12 +172,6 @@ export default function OrderTablePage() {
         };
 
 
-        console.log("selectedTable", selectedTable);
-        console.log("hoveredTable", hoveredTable);
-        console.log("mousePos", mousePos);
-        console.log("showConfirmation", showConfirmation);
-        console.log("lastBookedTable", lastBookedTable);
-
         const drawTooltip = (t: Table, x: number, y: number) => {
             if (!t.reservation) return;
             ctx.save();
@@ -215,6 +235,8 @@ export default function OrderTablePage() {
         if (type === 'click') {
             if (target && target.status === "available" && target.type !== "decor") {
                 setSelectedTable(target);
+                setBookingData({ name: "", email: "", phone: "", time: "" });
+                setErrors({});
             }
         } else {
             setHoveredTable(target || null);
@@ -267,10 +289,10 @@ export default function OrderTablePage() {
                         {/* Decorative Background Element */}
                         <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
 
-                        <div className="relative flex flex-col gap-10">
+                        <div className="relative flex flex-col gap-8">
                             <div className="flex justify-between items-start">
                                 <div>
-                                    <div className="w-16 h-1 bg-primary mb-8" />
+                                    <div className="w-16 h-1 bg-primary mb-6" />
                                     <h2 className="text-3xl md:text-5xl font-bold tracking-tighter leading-none mb-2 text-white">{selectedTable.name}</h2>
                                     <p className="text-[10px] font-bold text-primary uppercase tracking-[0.4em] opacity-80">Matrix Configuration Protocol</p>
                                 </div>
@@ -282,41 +304,98 @@ export default function OrderTablePage() {
                                 </button>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-6">
-                                <div className="bg-white/[0.03] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] border border-white/5">
-                                    <span className="text-[10px] uppercase font-bold opacity-30 block mb-2 text-white">Max Capacity</span>
-                                    <span className="text-2xl md:text-4xl font-bold tracking-tighter italic text-white">{selectedTable.capacity} Guests</span>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div className="space-y-6">
+                                    <div className="bg-white/[0.02] p-6 rounded-3xl border border-white/5">
+                                        <span className="text-[10px] uppercase font-bold opacity-30 block mb-2 text-white">Max Capacity</span>
+                                        <span className="text-2xl font-bold tracking-tighter italic text-white">{selectedTable.capacity} Guests</span>
+                                    </div>
+                                    <div className="space-y-5">
+                                        <div>
+                                            <input
+                                                type="text"
+                                                placeholder="GUEST NAME"
+                                                value={bookingData.name}
+                                                onChange={(e) => {
+                                                    setBookingData({ ...bookingData, name: e.target.value });
+                                                    setErrors({ ...errors, name: "" });
+                                                }}
+                                                className={`w-full bg-white/5 border ${errors.name ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-primary'} rounded-2xl py-5 px-7 text-[10px] font-bold tracking-[0.2em] outline-none transition-all placeholder:opacity-20`}
+                                            />
+                                            {errors.name && <p className="text-[8px] text-red-500 font-bold tracking-widest mt-2 ml-4 animate-in fade-in slide-in-from-left-2">{errors.name}</p>}
+                                        </div>
+                                        <div>
+                                            <input
+                                                type="email"
+                                                placeholder="SECURE EMAIL"
+                                                value={bookingData.email}
+                                                onChange={(e) => {
+                                                    setBookingData({ ...bookingData, email: e.target.value });
+                                                    setErrors({ ...errors, email: "" });
+                                                }}
+                                                className={`w-full bg-white/5 border ${errors.email ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-primary'} rounded-2xl py-5 px-7 text-[10px] font-bold tracking-[0.2em] outline-none transition-all placeholder:opacity-20`}
+                                            />
+                                            {errors.email && <p className="text-[8px] text-red-500 font-bold tracking-widest mt-2 ml-4 animate-in fade-in slide-in-from-left-2">{errors.email}</p>}
+                                        </div>
+                                        <div>
+                                            <input
+                                                type="tel"
+                                                placeholder="RELAY PHONE"
+                                                value={bookingData.phone}
+                                                onChange={(e) => {
+                                                    setBookingData({ ...bookingData, phone: e.target.value });
+                                                    setErrors({ ...errors, phone: "" });
+                                                }}
+                                                className={`w-full bg-white/5 border ${errors.phone ? 'border-red-500/50 focus:border-red-500' : 'border-white/10 focus:border-primary'} rounded-2xl py-5 px-7 text-[10px] font-bold tracking-[0.2em] outline-none transition-all placeholder:opacity-20`}
+                                            />
+                                            {errors.phone && <p className="text-[8px] text-red-500 font-bold tracking-widest mt-2 ml-4 animate-in fade-in slide-in-from-left-2">{errors.phone}</p>}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="bg-white/[0.03] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] border border-white/5">
-                                    <span className="text-[10px] uppercase font-bold opacity-30 block mb-2 text-white">Zone Status</span>
-                                    <span className="text-sm font-bold text-primary uppercase tracking-widest block py-2">Optimal Ready</span>
-                                </div>
-                            </div>
 
-                            <div className="space-y-6">
-                                <span className="text-[10px] uppercase font-bold opacity-30 block">Select Reservation Time</span>
-                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                                    {["18:00", "19:30", "21:00", "22:30"].map(t => (
-                                        <button key={t} className={`py-5 rounded-3xl text-sm font-bold border transition-all ${t === "21:00" ? "bg-primary border-primary shadow-[0_10px_30px_rgba(249,115,22,0.4)]" : "bg-white/5 border-white/5 hover:border-white/20"}`}>
-                                            {t}
-                                        </button>
-                                    ))}
+                                <div className="space-y-6">
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-[10px] uppercase font-bold opacity-30 block">Select Reservation Time</span>
+                                        {errors.time && <span className="text-[7px] text-red-500 font-bold tracking-widest uppercase">{errors.time}</span>}
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        {["18:00", "19:30", "21:00", "22:30", "23:00", "23:30"].map(t => (
+                                            <button
+                                                key={t}
+                                                onClick={() => {
+                                                    setBookingData({ ...bookingData, time: t });
+                                                    setErrors({ ...errors, time: "" });
+                                                }}
+                                                className={`py-5 rounded-3xl text-[9px] font-bold border tracking-[0.2em] transition-all relative overflow-hidden ${bookingData.time === t ? "bg-primary border-primary shadow-[0_15px_30px_rgba(249,115,22,0.3)] text-white" : "bg-white/5 border-white/5 hover:border-white/20 text-white/40"}`}
+                                            >
+                                                {t}
+                                                {bookingData.time === t && <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent pointer-events-none" />}
+                                            </button>
+                                        ))}
+                                    </div>
+                                    <div className="bg-white/[0.02] p-6 rounded-3xl border border-white/5 mt-4 text-center">
+                                        <p className="text-[8px] text-muted-foreground leading-relaxed italic opacity-40">
+                                            &quot;Digital seating assignments are synchronized with our real-time spatial matrix. Please ensure all communication relays are valid for arrival verification.&quot;
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
 
                             <button
                                 onClick={() => {
-                                    setLastBookedTable(selectedTable);
-                                    setShowConfirmation(true);
-                                    setSelectedTable(null);
-                                    setTimeout(() => {
-                                        setShowConfirmation(false);
-                                        setLastBookedTable(null);
-                                    }, 4000);
+                                    if (validateForm()) {
+                                        setLastBookedTable(selectedTable);
+                                        setShowConfirmation(true);
+                                        setSelectedTable(null);
+                                        setTimeout(() => {
+                                            setShowConfirmation(false);
+                                            setLastBookedTable(null);
+                                        }, 4000);
+                                    }
                                 }}
-                                className="w-full bg-primary text-white py-6 md:py-8 rounded-[2rem] md:rounded-[3rem] font-bold text-xl md:text-2xl shadow-[0_40px_80px_rgba(249,115,22,0.4)] hover:scale-[1.02] hover:-translate-y-1 active:scale-[0.98] transition-all"
+                                className="w-full bg-primary text-white py-7 rounded-[2.5rem] font-bold text-sm shadow-[0_40px_80px_rgba(249,115,22,0.4)] hover:scale-[1.02] hover:-translate-y-1 active:scale-[0.98] transition-all uppercase tracking-[0.4em]"
                             >
-                                Confirm Booking
+                                Confirm Seating Protocol
                             </button>
                         </div>
                     </div>
