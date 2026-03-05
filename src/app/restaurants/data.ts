@@ -19,6 +19,22 @@ export const RESTAURANTS = [
             "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200",
             "https://images.unsplash.com/photo-1769812343628-5a2d12f297f7?q=80&w=800&auto=format&fit=crop",
             "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800"
+        ],
+        menu: [
+            {
+                category: "Appetizers",
+                items: [
+                    { name: "Foie Gras Terrine", description: "With fig jam and toasted brioche.", price: "$28", image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80" },
+                    { name: "Escargots de Bourgogne", description: "Wild Burgundy snails in garlic herb butter.", price: "$22", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80" }
+                ]
+            },
+            {
+                category: "Main Course",
+                items: [
+                    { name: "Duck Confit", description: "Slow-cooked duck leg with puy lentils and orange reduction.", price: "$42", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80" },
+                    { name: "Ratatouille", description: "Classic Provence vegetable stew with vibrant herbs.", price: "$34", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80" }
+                ]
+            }
         ]
     },
     {
@@ -37,6 +53,15 @@ export const RESTAURANTS = [
             "https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1200",
             "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800",
             "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800"
+        ],
+        menu: [
+            {
+                category: "From the Grill",
+                items: [
+                    { name: "Wagyu Ribeye", description: "Marble score 9+, charcoal grilled to perfection.", price: "$120", image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80" },
+                    { name: "Black Angus Sirloin", description: "30-day dry-aged, served with bone marrow butter.", price: "$65", image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80" }
+                ]
+            }
         ]
     },
     {
@@ -55,6 +80,15 @@ export const RESTAURANTS = [
             "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200",
             "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=800",
             "https://images.unsplash.com/photo-1676471932681-45fa972d848a?q=80&w=800&auto=format&fit=crop"
+        ],
+        menu: [
+            {
+                category: "Sushi & Sashimi",
+                items: [
+                    { name: "Omakase Selection", description: "12 pieces of premium chef-selected nigiri.", price: "$150", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80" },
+                    { name: "Bluefin Tuna Flight", description: "Otoro, Chutoro, and Akami pieces.", price: "$45", image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80" }
+                ]
+            }
         ]
     },
     {
@@ -73,6 +107,15 @@ export const RESTAURANTS = [
             "https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1200",
             "https://images.unsplash.com/photo-1771574205963-0c1d84ac7354?q=80&w=800&auto=format&fit=crop",
             "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800"
+        ],
+        menu: [
+            {
+                category: "Small Plates",
+                items: [
+                    { name: "Octopus Carpaccio", description: "With lemon oil, capers, and fresh herbs.", price: "$24", image: "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80" },
+                    { name: "Lamb Kofta", description: "Spiced ground lamb with tzatziki and pita.", price: "$18", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80" }
+                ]
+            }
         ]
     },
     {
@@ -91,6 +134,15 @@ export const RESTAURANTS = [
             "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1200",
             "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800",
             "https://images.unsplash.com/photo-1769812343628-5a2d12f297f7?q=80&w=800&auto=format&fit=crop"
+        ],
+        menu: [
+            {
+                category: "Primi Piatti",
+                items: [
+                    { name: "Truffle Pappardelle", description: "Fresh pasta with black truffle and parmigiano.", price: "$32", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80" },
+                    { name: "Osso Buco", description: "Braised veal shanks with gremolata and risotto.", price: "$48", image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80" }
+                ]
+            }
         ]
     },
     {
@@ -109,6 +161,15 @@ export const RESTAURANTS = [
             "https://images.unsplash.com/photo-1676471932681-45fa972d848a?q=80&w=1200&auto=format&fit=crop",
             "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800",
             "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800"
+        ],
+        menu: [
+            {
+                category: "Heritage Curry",
+                items: [
+                    { name: "Old Delhi Butter Chicken", description: "Smoked chicken in a rich tomato cream sauce.", price: "$26", image: "https://images.unsplash.com/photo-1676471932681-45fa972d848a?auto=format&fit=crop&q=80" },
+                    { name: "Nilgiri Lamb Korma", description: "Slow-cooked lamb in a cilantro and coconut milk gravy.", price: "$30", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80" }
+                ]
+            }
         ]
     },
     {
@@ -127,6 +188,15 @@ export const RESTAURANTS = [
             "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200",
             "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800",
             "https://images.unsplash.com/photo-1769812343628-5a2d12f297f7?q=80&w=800&auto=format&fit=crop"
+        ],
+        menu: [
+            {
+                category: "The Cold Coast",
+                items: [
+                    { name: "Cured Arctic Char", description: "With dill oil, cucumber, and cultured cream.", price: "$28", image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80" },
+                    { name: "Reindeer Tartare", description: "With pickled moss and lingonberry gel.", price: "$34", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80" }
+                ]
+            }
         ]
     },
     {
@@ -145,6 +215,15 @@ export const RESTAURANTS = [
             "https://images.unsplash.com/photo-1534080564583-6be75777b70a?q=80&w=1200",
             "https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=800",
             "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800"
+        ],
+        menu: [
+            {
+                category: "Ocean's Bounty",
+                items: [
+                    { name: "Sydney Rock Oysters", description: "Half dozen with finger lime mignonette.", price: "$32", image: "https://images.unsplash.com/photo-1534080564583-6be75777b70a?auto=format&fit=crop&q=80" },
+                    { name: "Grilled Moreton Bay Bugs", description: "With garlic butter and coastal herbs.", price: "$55", image: "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80" }
+                ]
+            }
         ]
     },
     {
@@ -163,6 +242,15 @@ export const RESTAURANTS = [
             "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200",
             "https://images.unsplash.com/photo-1771574205963-0c1d84ac7354?q=80&w=800&auto=format&fit=crop",
             "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=800"
+        ],
+        menu: [
+            {
+                category: "Wood Fired Pizza",
+                items: [
+                    { name: "Heirloom Margherita", description: "San Marzano tomatoes, fior di latte, and cold-pressed oil.", price: "$22", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80" },
+                    { name: "Wild Mushroom & Taleggio", description: "Foraged greens and aged balsamic.", price: "$26", image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80" }
+                ]
+            }
         ]
     },
     {
@@ -181,6 +269,15 @@ export const RESTAURANTS = [
             "https://images.unsplash.com/photo-1771574205963-0c1d84ac7354?q=80&w=1200&auto=format&fit=crop",
             "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800",
             "https://images.unsplash.com/photo-1534080564583-6be75777b70a?q=80&w=800"
+        ],
+        menu: [
+            {
+                category: "Mountain Classics",
+                items: [
+                    { name: "Black Truffle Fondue", description: "With rustic bread and local mountain pickles.", price: "$45", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80" },
+                    { name: "Slow Braised Venison", description: "With juniper berry jus and hand-cut spätzle.", price: "$52", image: "https://images.unsplash.com/photo-1534080564583-6be75777b70a?auto=format&fit=crop&q=80" }
+                ]
+            }
         ]
     },
     {
@@ -199,6 +296,15 @@ export const RESTAURANTS = [
             "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200",
             "https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=800",
             "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800"
+        ],
+        menu: [
+            {
+                category: "The Parrilla",
+                items: [
+                    { name: "Bife de Chorizo", description: "14oz grass-fed sirloin, grilled over quebracho wood.", price: "$45", image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80" },
+                    { name: "Classic Empanadas", description: "Hand-folded with hand-cut beef and green olives.", price: "$12", image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80" }
+                ]
+            }
         ]
     },
     {
@@ -217,6 +323,15 @@ export const RESTAURANTS = [
             "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=1200",
             "https://images.unsplash.com/photo-1676471932681-45fa972d848a?q=80&w=800&auto=format&fit=crop",
             "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800"
+        ],
+        menu: [
+            {
+                category: "Matcha & Mochi",
+                items: [
+                    { name: "Ceremonial Matcha Tart", description: "With white chocolate ganache and gold leaf.", price: "$18", image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80" },
+                    { name: "Artisanal Mochi Flight", description: "Seasonal flavors: Sakura, Yuzu, and Toasted Sesame.", price: "$22", image: "https://images.unsplash.com/photo-1676471932681-45fa972d848a?auto=format&fit=crop&q=80" }
+                ]
+            }
         ]
     }
 ];

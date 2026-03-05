@@ -1,9 +1,24 @@
 "use client";
 
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function ContactPage() {
+
+    /**
+     * Contact Page
+     * 
+     * This page is a contact form for users to send messages to the restaurant.
+     * It uses a simple state machine to handle the form submission process.
+     * 
+     * State: idle | submitting | success
+     * 
+     * 
+     */
+
+
     const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -17,32 +32,19 @@ export default function ContactPage() {
     return (
         <div className="min-h-screen bg-white dark:bg-black pb-20 overflow-x-hidden font-sans">
             {/* Header / Navigation */}
-            <nav className="fixed top-0 z-50 w-full glass border-b border-white/10 px-6 py-4 flex items-center justify-between">
-                <Link href="/" className="text-2xl font-bold tracking-tighter">
-                    Dine<span className="gradient-text">Ease</span>
-                </Link>
-                <div className="flex gap-8 text-sm font-medium opacity-80">
-                    <Link href="/restaurants" className="hover:text-primary transition-colors">Restaurants</Link>
-                    <Link href="/order" className="hover:text-primary transition-colors">Order Table</Link>
-                    <Link href="/about" className="hover:text-primary transition-colors">About</Link>
-                    <Link href="/notifications" className="hover:text-primary transition-colors">Notifications</Link>
-                    <Link href="/contact" className="text-primary font-bold">Contact</Link>
-                </div>
-                <button className="bg-primary text-white px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity">
-                    My Account
-                </button>
-            </nav>
+
+            <Header />
 
             <main className="pt-32 max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
 
                     {/* Left: Interactive Form */}
-                    <div className="space-y-12">
+                    <div className="space-y-8 md:space-y-12">
                         <div className="space-y-4">
-                            <h1 className="text-6xl md:text-7xl font-bold tracking-tighter italic">
+                            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter italic text-white">
                                 Say <span className="gradient-text">Hello</span>
                             </h1>
-                            <p className="text-xl text-muted-foreground opacity-60 font-light max-w-md">
+                            <p className="text-lg md:text-xl text-muted-foreground opacity-60 font-light max-w-md">
                                 Whether you're a curious diner or a restaurant owner, our concierge is ready to assist you.
                             </p>
                         </div>
@@ -104,14 +106,14 @@ export default function ContactPage() {
 
                     {/* Right: Direct Channels & Visuals */}
                     <div className="space-y-12">
-                        <div className="glass p-12 rounded-[4rem] border border-white/10 relative overflow-hidden group">
+                        <div className="glass p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-white/10 relative overflow-hidden group">
                             {/* Accent Glow */}
                             <div className="absolute -top-32 -right-32 w-80 h-80 bg-primary/20 rounded-full blur-[100px] group-hover:bg-primary/30 transition-all duration-700" />
 
-                            <div className="relative space-y-12">
+                            <div className="relative space-y-8 md:space-y-12">
                                 <div>
                                     <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-primary block mb-4 border-b border-primary/20 pb-2 w-fit">Direct Channels</span>
-                                    <h2 className="text-4xl font-bold tracking-tighter">Global Hubs</h2>
+                                    <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-white">Global Hubs</h2>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -140,7 +142,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* Interactive-Style Static Map Mockup */}
-                        <div className="relative h-64 mx-12 rounded-[3.5rem] overflow-hidden group shadow-2xl border border-white/5">
+                        <div className="relative h-48 md:h-64 mx-4 md:mx-12 rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden group shadow-2xl border border-white/5">
                             <div className="absolute inset-0 bg-[#0a0a0a] flex items-center justify-center">
                                 {/* Grid backdrop */}
                                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
@@ -160,14 +162,7 @@ export default function ContactPage() {
                 </div>
             </main>
 
-            <footer className="mt-32 max-w-7xl mx-auto px-6 border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
-                <p className="text-[10px] font-bold uppercase tracking-[0.5em] opacity-30 italic">© 2026 DineEase Architecture. All Rights Reserved.</p>
-                <div className="flex gap-10">
-                    <button className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-40 hover:opacity-100 transition-opacity">Instagram</button>
-                    <button className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-40 hover:opacity-100 transition-opacity">X.Com</button>
-                    <button className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-40 hover:opacity-100 transition-opacity">LinkedIn</button>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }

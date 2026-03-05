@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/components/header";
 import { useState, useRef, useEffect } from "react";
 
 type Table = {
@@ -223,39 +224,28 @@ export default function OrderTablePage() {
 
     return (
         <div className="min-h-screen bg-white dark:bg-black overflow-hidden font-sans">
-            <nav className="fixed top-0 z-50 w-full glass border-b border-white/10 px-6 py-4 flex items-center justify-between">
-                <a href="/" className="text-2xl font-bold tracking-tighter">
-                    Dine<span className="gradient-text">Ease</span>
-                </a>
-                <div className="flex gap-8 text-sm font-medium opacity-80">
-                    <a href="/restaurants" className="hover:text-primary transition-colors">Restaurants</a>
-                    <a href="/order" className="text-primary font-bold">Order Table</a>
-                    <a href="/about" className="hover:text-primary transition-colors">About</a>
-                    <a href="/notifications" className="hover:text-primary transition-colors">Notifications</a>
-                    <a href="/contact" className="hover:text-primary transition-colors">Contact</a>
-                </div>
-                <button className="bg-primary text-white px-5 py-2 rounded-full text-sm font-semibold">My Account</button>
-            </nav>
+
+            <Header />
 
             <main className="pt-24 px-6 max-w-full mx-auto h-[calc(100vh-100px)]">
                 <div className="flex flex-col gap-6 h-full">
-                    <div className="flex items-center justify-between">
-                        <h1 className="text-4xl font-bold tracking-tighter uppercase italic">Dine <span className="gradient-text">Matrix</span></h1>
-                        <div className="flex gap-6 text-[10px] font-bold uppercase tracking-widest opacity-60">
-                            <span className="flex items-center gap-2"><div className="w-2.5 h-2.5 rounded-full bg-primary" /> Free Seat</span>
-                            <span className="flex items-center gap-2"><div className="w-2.5 h-2.5 rounded-full bg-amber-500" /> Reserved</span>
-                            <span className="flex items-center gap-2"><div className="w-2.5 h-2.5 rounded-full bg-zinc-700" /> Occupied</span>
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <h1 className="text-3xl md:text-4xl font-bold tracking-tighter uppercase italic text-white">Dine <span className="gradient-text">Matrix</span></h1>
+                        <div className="flex flex-wrap gap-4 md:gap-6 text-[10px] font-bold uppercase tracking-widest opacity-60">
+                            <span className="flex items-center gap-2 text-white"><div className="w-2.5 h-2.5 rounded-full bg-primary" /> Free Seat</span>
+                            <span className="flex items-center gap-2 text-white"><div className="w-2.5 h-2.5 rounded-full bg-amber-500" /> Reserved</span>
+                            <span className="flex items-center gap-2 text-white"><div className="w-2.5 h-2.5 rounded-full bg-zinc-700" /> Occupied</span>
                         </div>
                     </div>
 
-                    <div className="w-[1000px] h-[650px] relative flex-1 bg-[#050505] rounded-[3.5rem] border border-white/5 overflow-hidden shadow-[inset_0_0_150px_rgba(0,0,0,0.8)] group">
+                    <div className="w-full max-w-[1000px] aspect-[1000/650] relative bg-[#050505] rounded-3xl md:rounded-[3.5rem] border border-white/5 overflow-hidden shadow-[inset_0_0_150px_rgba(0,0,0,0.8)] group mx-auto">
                         <canvas
                             ref={canvasRef}
                             width={1000}
                             height={650}
                             onClick={(e) => handleInteraction(e, 'click')}
                             onMouseMove={(e) => handleInteraction(e, 'move')}
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-contain cursor-crosshair"
                         />
 
                         <div className="absolute top-8 right-8 text-[9px] text-zinc-800 font-mono text-right flex flex-col gap-1">
@@ -273,7 +263,7 @@ export default function OrderTablePage() {
                         className="absolute inset-0 bg-black/60 backdrop-blur-md"
                         onClick={() => setSelectedTable(null)}
                     />
-                    <div className="glass border border-white/20 p-12 rounded-[4rem] shadow-2xl w-full max-w-xl relative z-10 animate-in zoom-in slide-in-from-bottom-10 duration-500 overflow-hidden">
+                    <div className="glass border border-white/20 p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl w-full max-w-xl relative z-10 animate-in zoom-in slide-in-from-bottom-10 duration-500 overflow-hidden mx-4">
                         {/* Decorative Background Element */}
                         <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
 
@@ -281,7 +271,7 @@ export default function OrderTablePage() {
                             <div className="flex justify-between items-start">
                                 <div>
                                     <div className="w-16 h-1 bg-primary mb-8" />
-                                    <h2 className="text-5xl font-bold tracking-tighter leading-none mb-2">{selectedTable.name}</h2>
+                                    <h2 className="text-3xl md:text-5xl font-bold tracking-tighter leading-none mb-2 text-white">{selectedTable.name}</h2>
                                     <p className="text-[10px] font-bold text-primary uppercase tracking-[0.4em] opacity-80">Matrix Configuration Protocol</p>
                                 </div>
                                 <button
@@ -293,12 +283,12 @@ export default function OrderTablePage() {
                             </div>
 
                             <div className="grid grid-cols-2 gap-6">
-                                <div className="bg-white/[0.03] p-8 rounded-[2.5rem] border border-white/5">
-                                    <span className="text-[10px] uppercase font-bold opacity-30 block mb-2">Max Capacity</span>
-                                    <span className="text-4xl font-bold tracking-tighter italic">{selectedTable.capacity} Guests</span>
+                                <div className="bg-white/[0.03] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] border border-white/5">
+                                    <span className="text-[10px] uppercase font-bold opacity-30 block mb-2 text-white">Max Capacity</span>
+                                    <span className="text-2xl md:text-4xl font-bold tracking-tighter italic text-white">{selectedTable.capacity} Guests</span>
                                 </div>
-                                <div className="bg-white/[0.03] p-8 rounded-[2.5rem] border border-white/5">
-                                    <span className="text-[10px] uppercase font-bold opacity-30 block mb-2">Zone Status</span>
+                                <div className="bg-white/[0.03] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] border border-white/5">
+                                    <span className="text-[10px] uppercase font-bold opacity-30 block mb-2 text-white">Zone Status</span>
                                     <span className="text-sm font-bold text-primary uppercase tracking-widest block py-2">Optimal Ready</span>
                                 </div>
                             </div>
@@ -324,7 +314,7 @@ export default function OrderTablePage() {
                                         setLastBookedTable(null);
                                     }, 4000);
                                 }}
-                                className="w-full bg-primary text-white py-8 rounded-[3rem] font-bold text-2xl shadow-[0_40px_80px_rgba(249,115,22,0.4)] hover:scale-[1.02] hover:-translate-y-1 active:scale-[0.98] transition-all"
+                                className="w-full bg-primary text-white py-6 md:py-8 rounded-[2rem] md:rounded-[3rem] font-bold text-xl md:text-2xl shadow-[0_40px_80px_rgba(249,115,22,0.4)] hover:scale-[1.02] hover:-translate-y-1 active:scale-[0.98] transition-all"
                             >
                                 Confirm Booking
                             </button>
