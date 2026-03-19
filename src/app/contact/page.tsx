@@ -31,14 +31,11 @@ export default function ContactPage() {
 
     return (
         <div className="min-h-screen bg-white dark:bg-black pb-20 overflow-x-hidden font-sans">
-            {/* Header / Navigation */}
 
             <Header />
 
             <main className="pt-32 max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-
-                    {/* Left: Interactive Form */}
                     <div className="space-y-8 md:space-y-12">
                         <div className="space-y-4">
                             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter italic text-white">
@@ -104,10 +101,8 @@ export default function ContactPage() {
                         </form>
                     </div>
 
-                    {/* Right: Direct Channels & Visuals */}
                     <div className="space-y-12">
                         <div className="glass p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] border border-white/10 relative overflow-hidden group">
-                            {/* Accent Glow */}
                             <div className="absolute -top-32 -right-32 w-80 h-80 bg-primary/20 rounded-full blur-[100px] group-hover:bg-primary/30 transition-all duration-700" />
 
                             <div className="relative space-y-8 md:space-y-12">
@@ -141,10 +136,8 @@ export default function ContactPage() {
                             </div>
                         </div>
 
-                        {/* Interactive-Style Static Map Mockup */}
                         <div className="relative h-48 md:h-64 mx-4 md:mx-12 rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden group shadow-2xl border border-white/5">
                             <div className="absolute inset-0 bg-[#0a0a0a] flex items-center justify-center">
-                                {/* Grid backdrop */}
                                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
                                 <div className="relative flex flex-col items-center">
                                     <div className="w-12 h-12 bg-primary rounded-full animate-ping opacity-20" />

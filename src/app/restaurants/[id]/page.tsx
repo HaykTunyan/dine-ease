@@ -18,8 +18,6 @@ export default async function RestaurantDetailPage({ params }: { params: Promise
 
     const { id } = await params;
 
-
-    // Find restaurant dynamically based on ID
     const restaurant = RESTAURANTS.find(r => r.id === id);
 
     if (!restaurant) {
@@ -28,10 +26,8 @@ export default async function RestaurantDetailPage({ params }: { params: Promise
 
     return (
         <div className="min-h-screen bg-white dark:bg-black pb-20 overflow-x-hidden">
-            {/* Navigation */}
             <Header />
 
-            {/* Hero Section */}
             <section className="relative h-[70vh] w-full overflow-hidden">
                 <Image
                     src={restaurant.images[0]}
@@ -62,10 +58,8 @@ export default async function RestaurantDetailPage({ params }: { params: Promise
                 </div>
             </section>
 
-            {/* Content Section */}
             <main className="max-w-7xl mx-auto px-6 md:px-12 mt-12 md:mt-24 grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-24">
 
-                {/* Main Details */}
                 <div className="lg:col-span-2 space-y-24">
                     <section>
                         <div className="w-16 h-1 bg-primary mb-6 md:mb-10" />
@@ -117,11 +111,8 @@ export default async function RestaurantDetailPage({ params }: { params: Promise
                         </div>
                     </section>
                 </div>
-
-                {/* Luxury Sidebar */}
                 <aside className="space-y-8 md:space-y-12">
                     <div className="glass p-8 md:p-12 rounded-3xl md:rounded-[4rem] border border-white/10 sticky top-32 shadow-[0_50px_100px_rgba(0,0,0,0.5)] overflow-hidden">
-                        {/* Decorative Gradient Blob */}
                         <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-[80px]" />
 
                         <div className="mb-14 relative">

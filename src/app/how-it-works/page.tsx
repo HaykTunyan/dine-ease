@@ -3,7 +3,6 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const SYSTEMS_STEPS = [
@@ -46,14 +45,22 @@ const SYSTEMS_STEPS = [
 ];
 
 export default function HowItWorksPage() {
-    const [currentStep, setCurrentStep] = useState(0);
+
+    /**
+     * 
+     * How It Works Page
+     * 
+     * This page is a step-by-step guide to how the Dine Ease system works.
+     * 
+     * 
+     */
 
     return (
         <div className="min-h-screen bg-black text-white font-sans selection:bg-primary/30">
             <Header />
 
             <main className="pt-32 pb-20">
-                {/* Hero Introduction */}
+
                 <section className="max-w-7xl mx-auto px-6 mb-24 text-center">
                     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-10 duration-1000">
                         <span className="px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-[10px] font-bold text-primary uppercase tracking-[0.4em] inline-block">
@@ -68,7 +75,6 @@ export default function HowItWorksPage() {
                     </div>
                 </section>
 
-                {/* Vertical Process Visualization */}
                 <section className="max-w-7xl mx-auto px-6 relative">
                     <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/10 -translate-x-1/2 hidden lg:block" />
 
@@ -78,14 +84,13 @@ export default function HowItWorksPage() {
                                 className={`flex flex-col lg:flex-row items-center gap-12 md:gap-24 relative ${idx % 2 === 0 ? "" : "lg:flex-row-reverse"
                                     }`}
                             >
-                                {/* Digital Marker */}
                                 <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-10 hidden lg:block">
                                     <div className="w-12 h-12 rounded-full bg-black border border-white/20 flex items-center justify-center font-bold text-xs ring-8 ring-black">
                                         {step.id}
                                     </div>
                                 </div>
 
-                                {/* Content Side */}
+
                                 <div className="flex-1 space-y-6 text-center lg:text-left">
                                     <div className={`w-16 h-16 rounded-2xl ${step.color} flex items-center justify-center text-3xl mb-4 mx-auto lg:mx-0 shadow-2xl`}>
                                         {step.icon}
@@ -101,7 +106,7 @@ export default function HowItWorksPage() {
                                     </p>
                                 </div>
 
-                                {/* Visual Side */}
+
                                 <div className="flex-1 w-full flex justify-center">
                                     <div className="relative w-full max-w-md aspect-square rounded-[3rem] overflow-hidden group shadow-2xl border border-white/5">
                                         <Image
@@ -123,7 +128,6 @@ export default function HowItWorksPage() {
                     </div>
                 </section>
 
-                {/* System Architecture Overview */}
                 <section className="mt-48 max-w-7xl mx-auto px-6">
                     <div className="glass p-12 md:p-24 rounded-[4rem] border border-white/10 relative overflow-hidden text-center">
                         <div className="absolute -top-32 -left-32 w-80 h-80 bg-primary/10 rounded-full blur-[120px]" />

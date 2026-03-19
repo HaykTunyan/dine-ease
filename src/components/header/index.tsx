@@ -24,18 +24,18 @@ export default function Header() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <button className="hidden md:block bg-primary text-white px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity">
+                    {/* <button className="hidden md:block bg-primary text-white px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity">
                         My Account
-                    </button>
+                    </button> */}
 
                     {/* Mobile Menu Toggle */}
                     <button
-                        className="md:hidden flex flex-col gap-1.5 relative z-[60] p-2"
+                        className="md:hidden flex flex-col gap-1.5 relative z-[60] p-2 "
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
-                        <span className={`w-6 h-0.5 bg-foreground transition-transform duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
-                        <span className={`w-6 h-0.5 bg-foreground transition-opacity duration-300 ${isMenuOpen ? "opacity-0" : ""}`} />
-                        <span className={`w-6 h-0.5 bg-foreground transition-transform duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+                        <span className={`w-6 h-0.5 bg-foreground bg-amber-50 transition-transform duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+                        <span className={`w-6 h-0.5 bg-foreground bg-amber-50 transition-opacity duration-300 ${isMenuOpen ? "opacity-0" : ""}`} />
+                        <span className={`w-6 h-0.5 bg-foreground bg-amber-50 transition-transform duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
                     </button>
                 </div>
 
@@ -48,9 +48,9 @@ export default function Header() {
                         <Link href="/notifications" onClick={() => setIsMenuOpen(false)} className="hover:text-primary transition-colors">Notifications</Link>
                         <Link href="/about" onClick={() => setIsMenuOpen(false)} className="hover:text-primary transition-colors">About</Link>
                         <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:text-primary transition-colors">Contact</Link>
-                        <button className="bg-primary text-white px-8 py-4 rounded-full text-lg mt-4">
+                        {/* <button className="bg-primary text-white px-8 py-4 rounded-full text-lg mt-4">
                             My Account
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </nav>

@@ -27,12 +27,23 @@ const MATRIX_FEATURES = [
 ];
 
 export default function OnlineTableInfoPage() {
+
+    /**
+     * 
+     * Online Table Page
+     * 
+     * This page is a landing page for the online table system.
+     * It explains the features of the system and how to use it.
+     * 
+     * 
+     */
+
+
     return (
         <div className="min-h-screen bg-black text-white font-sans selection:bg-primary/30">
             <Header />
 
             <main className="pt-32 pb-20">
-                {/* Hero section */}
                 <section className="max-w-7xl mx-auto px-6 mb-24">
                     <div className="flex flex-col lg:flex-row gap-20 items-center">
                         <div className="flex-1 space-y-8 animate-in fade-in slide-in-from-left-10 duration-1000">
@@ -62,7 +73,6 @@ export default function OnlineTableInfoPage() {
                     </div>
                 </section>
 
-                {/* Feature highlights */}
                 <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         {MATRIX_FEATURES.map((feature, idx) => (
@@ -90,7 +100,6 @@ export default function OnlineTableInfoPage() {
                     </div>
                 </section>
 
-                {/* How to use section (Step-by-Step for the Table System) */}
                 <section className="mt-32 max-w-7xl mx-auto px-6 py-24 bg-[#050505] rounded-[4rem] border border-white/5 relative overflow-hidden">
                     <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                     <div className="relative space-y-20">
@@ -128,8 +137,6 @@ export default function OnlineTableInfoPage() {
                         </div>
                     </div>
                 </section>
-
-                {/* Technical Note */}
                 <section className="mt-32 max-w-3xl mx-auto px-6 text-center space-y-8">
                     <div className="w-12 h-1 bg-white/10 mx-auto" />
                     <p className="text-sm text-muted-foreground leading-relaxed font-light italic">

@@ -9,6 +9,17 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export default function RestaurantMenuPage({ params }: { params: Promise<{ id: string }> }) {
+
+    /**
+     * 
+     * Restaurant Menu Page
+     * 
+     * This page is a menu page for a specific restaurant.
+     * It displays the restaurant's menu and other information.
+     * 
+     * 
+     */
+
     const { id } = use(params);
     const restaurant = RESTAURANTS.find(r => r.id === id);
     const [activeCategory, setActiveCategory] = useState(restaurant?.menu?.[0]?.category || "");
@@ -22,7 +33,6 @@ export default function RestaurantMenuPage({ params }: { params: Promise<{ id: s
             <Header />
 
             <main className="pt-32 pb-20 max-w-7xl mx-auto px-6">
-                {/* Header Section */}
                 <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16 animate-in fade-in slide-in-from-bottom-10 duration-1000">
                     <div className="space-y-4">
                         <Link
@@ -38,16 +48,14 @@ export default function RestaurantMenuPage({ params }: { params: Promise<{ id: s
                             {restaurant.name} // Culinary Collection
                         </p>
                     </div>
-
-                    {/* Category Selector */}
                     <div className="flex flex-wrap gap-4 md:gap-6 border-b border-white/10 pb-4 w-full md:w-auto">
                         {restaurant.menu?.map((cat) => (
                             <button
                                 key={cat.category}
                                 onClick={() => setActiveCategory(cat.category)}
                                 className={`text-[10px] font-bold uppercase tracking-[0.3em] pb-2 transition-all relative ${activeCategory === cat.category
-                                        ? "text-primary"
-                                        : "text-white/40 hover:text-white"
+                                    ? "text-primary"
+                                    : "text-white/40 hover:text-white"
                                     }`}
                             >
                                 {cat.category}
@@ -59,7 +67,6 @@ export default function RestaurantMenuPage({ params }: { params: Promise<{ id: s
                     </div>
                 </div>
 
-                {/* Menu Items Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 animate-in fade-in slide-in-from-bottom-20 duration-1000 delay-300">
                     {restaurant.menu?.find(cat => cat.category === activeCategory)?.items.map((item, idx) => (
                         <div
@@ -96,7 +103,6 @@ export default function RestaurantMenuPage({ params }: { params: Promise<{ id: s
                     ))}
                 </div>
 
-                {/* Chef's Note */}
                 <div className="mt-32 glass p-12 md:p-20 rounded-[4rem] text-center relative overflow-hidden border border-white/5">
                     <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                     <div className="relative space-y-8">

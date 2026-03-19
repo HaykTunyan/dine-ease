@@ -48,7 +48,6 @@ export default function NotificationsPage() {
 
     const [activeStep, setActiveStep] = useState(0);
 
-    // Auto-cycling workflow steps for visual flair
     useEffect(() => {
         const interval = setInterval(() => {
             setActiveStep((prev) => (prev + 1) % 4);
@@ -58,12 +57,10 @@ export default function NotificationsPage() {
 
     return (
         <div className="min-h-screen bg-white dark:bg-black pb-20 overflow-x-hidden font-sans">
-            {/* Header / Navigation */}
+
             <Header />
 
             <main className="pt-32 max-w-7xl mx-auto px-6">
-
-                {/* Hero Section */}
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center mb-16 md:mb-32">
                     <div className="flex-1 space-y-6 md:space-y-8 animate-in fade-in slide-in-from-left-10 duration-1000 text-center lg:text-left">
                         <span className="px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-[10px] font-bold text-primary uppercase tracking-[0.3em] inline-block">
@@ -84,12 +81,8 @@ export default function NotificationsPage() {
                             </Link>
                         </div>
                     </div>
-
-                    {/* Visual: Floating Notification Mockup */}
                     <div className="flex-1 relative w-full h-[500px] flex items-center justify-center">
                         <div className="absolute inset-0 hero-gradient opacity-20 blur-[100px]" />
-
-                        {/* Mock Phone / Notification Stack */}
                         <div className="relative z-10 space-y-4 w-full max-w-sm">
                             <div className="glass p-6 rounded-[2.5rem] border border-white/20 shadow-2xl animate-float">
                                 <div className="flex items-center gap-4 mb-3">
@@ -119,8 +112,6 @@ export default function NotificationsPage() {
                         </div>
                     </div>
                 </div>
-
-                {/* Notification Architecture Section */}
                 <section className="py-16 md:py-24 border-t border-white/5">
                     <div className="mb-12 md:mb-20">
                         <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-primary block mb-4 border-b border-primary/20 pb-2 w-fit">Infrastructure</span>
@@ -146,7 +137,6 @@ export default function NotificationsPage() {
                     </div>
                 </section>
 
-                {/* Interactive Workflow Visualization */}
                 <section className="py-16 md:py-32 bg-[#050505] rounded-[2.5rem] md:rounded-[4rem] border border-white/5 p-6 md:p-12 relative overflow-hidden">
                     <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
@@ -156,7 +146,6 @@ export default function NotificationsPage() {
                     </div>
 
                     <div className="relative max-w-4xl mx-auto flex justify-between items-center px-2 md:px-4">
-                        {/* Connecting Line */}
                         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/10 -translate-y-1/2" />
 
                         {[1, 2, 3, 4].map((step, idx) => (
@@ -187,8 +176,6 @@ export default function NotificationsPage() {
                         </p>
                     </div>
                 </section>
-
-                {/* FAQ / Control Panel Mockup */}
                 <section className="py-24 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     <div className="space-y-12">
                         <div>
@@ -242,7 +229,6 @@ export default function NotificationsPage() {
                         </div>
                     </div>
                 </section>
-
             </main>
 
             <Footer />

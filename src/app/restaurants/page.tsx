@@ -15,13 +15,10 @@ export default function RestaurantsListPage() {
      * 
      */
 
-
     return (
         <div className="min-h-screen bg-white dark:bg-black pb-20 overflow-x-hidden">
-            {/* Navigation (Consistent) */}
 
             <Header />
-
             <main className="pt-32 max-w-7xl mx-auto px-6">
                 <div className="flex flex-col gap-4 mb-16">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">

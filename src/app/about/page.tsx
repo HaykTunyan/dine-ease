@@ -21,15 +21,23 @@ const MISSION_ITEMS = [
 ];
 
 export default function AboutPage() {
+
+    /**
+     *
+     * About Page
+     * 
+     * This page is an about page for the Dine Ease app.
+     * It displays information about the app, its mission, and its vision.
+     * 
+     * 
+     */
+
+
     return (
         <div className="min-h-screen bg-white dark:bg-black pb-20 overflow-hidden">
-            {/* Navigation */}
 
             <Header />
-
-
             <main>
-                {/* Intro Section */}
                 <section className="relative pt-32 md:pt-48 pb-16 md:pb-24 px-6 text-center max-w-5xl mx-auto overflow-hidden">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[800px] h-[400px] md:h-[500px] hero-gradient pointer-events-none opacity-50" />
 
@@ -49,7 +57,6 @@ export default function AboutPage() {
                     </p>
                 </section>
 
-                {/* Stats Grid */}
                 <section className="px-6 py-12 max-w-7xl mx-auto">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                         {STATS.map(stat => (
@@ -61,7 +68,6 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* Detailed Info */}
                 <section className="px-6 py-16 md:py-24 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
                     <div className="relative h-[400px] md:h-[600px] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl animate-float">
                         <Image
@@ -103,7 +109,6 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* Call to Action */}
                 <section className="px-6 py-16 md:py-24 text-center">
                     <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">Ready to join the revolution?</h2>
                     <div className="flex flex-col sm:flex-row justify-center gap-4 px-6 md:px-0">
